@@ -1,0 +1,60 @@
+
+package context;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
+public class DBContext {
+	static String hostName = "DESKTOP-US9F04C";
+	static String sqlInstanceName = "";
+	static String database = "ShopBanHoa";
+	static	String userName = "sa";
+	static	String password = "123";
+	public static Connection getSQLServerConnection_JTDS() throws SQLException,
+    ClassNotFoundException {
+String hostName = "DESKTOP-US9F04C";
+String sqlInstanceName = "SQLEXPRESS2012";
+String database = "ShopBanHoa";
+String userName = "sa";
+String password = "123";
+
+return getSQLServerConnection_JTDS(hostName, sqlInstanceName, database,
+        userName, password);
+}
+
+
+//TrÆ°á»�ng há»£p sá»­ dá»¥ng SQLServer.
+//VÃ  thÆ° viá»‡n JTDS.
+private static Connection getSQLServerConnection_JTDS(String hostName,
+    String sqlInstanceName, String database, String userName,
+    String password) throws ClassNotFoundException, SQLException {
+// Khai bÃ¡o class Driver cho DB SQLServer
+// Viá»‡c nÃ y cáº§n thiáº¿t vá»›i Java 5
+// Java6 tá»± Ä‘á»™ng tÃ¬m kiáº¿m Driver thÃ­ch há»£p.
+// Náº¿u báº¡n dÃ¹ng Java > 5, thÃ¬ ko cáº§n dÃ²ng nÃ y cÅ©ng Ä‘Æ°á»£c.
+Class.forName("net.sourceforge.jtds.jdbc.Driver");
+
+// Cáº¥u trÃºc URL Connection dÃ nh cho SQLServer
+// VÃ­ dá»¥:
+// jdbc:jtds:sqlserver://localhost:1433/simplehr;instance=SQLEXPRESS
+String connectionURL = "jdbc:jtds:sqlserver://" + hostName + ":1433/"
+        + database + ";instance=" + sqlInstanceName;
+
+Connection conn = DriverManager.getConnection(connectionURL, userName,
+        password);
+return conn;
+}
+public static void main(String[] args) {
+	try {
+		getSQLServerConnection_JTDS();
+		System.out.println("Thanh Cong");
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+}
+}
+ 

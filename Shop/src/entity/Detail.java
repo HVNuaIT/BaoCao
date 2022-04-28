@@ -1,0 +1,53 @@
+package entity;
+
+public class Detail {
+private int maChiTietHoaDon;
+private Order idOrder;
+private Product  id;
+private String soluong;
+private float giá;
+public int getMaChiTietHoaDon() {
+	return maChiTietHoaDon;
+}
+public void setMaChiTietHoaDon(int maChiTietHoaDon) {
+	this.maChiTietHoaDon = maChiTietHoaDon;
+}
+
+public Order getIdOrder() {
+	return idOrder;
+}
+public void setIdOrder(Order idOrder) {
+	this.idOrder = idOrder;
+}
+public Product getId() {
+	return id;
+}
+public void setId(Product id) {
+	this.id = id;
+}
+public String getSoluong() {
+	return soluong;
+}
+public void setSoluong(String soluong) {
+	this.soluong = soluong;
+}
+public float getGiá() {
+	return giá;
+}
+public void setGiá(float giá) {
+	this.giá = giá;
+}
+public Detail() {
+	
+}
+public Detail(int maChiTietHoaDon, Order idOrder, Product id, String soluong, float giá) {
+	super();
+	this.maChiTietHoaDon = maChiTietHoaDon;
+	this.idOrder = idOrder;
+	this.id = id;
+	this.soluong = soluong;
+	this.giá = giá;
+}
+
+
+}
